@@ -246,16 +246,13 @@ resource.AddWorkshop( "907056173" )
 
 			local foundShip, foundShipKey
 
-			for key,ship in pairs( CustomShipments ) do
-
+			for key, ship in pairs(GUNCRAFT.CustomShipments) do
 				if ship.entity == GUNCRAFT.config.weapons[wepKey].classname then
-
 					foundShip = ship
 					foundShipKey = key
-
 				end
-
 			end
+			
 
 			bench:SetNWBool( "guncraft_isWorking", false )
 

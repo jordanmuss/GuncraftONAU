@@ -1,3 +1,4 @@
+CustomShipments = CustomShipments or {}
 include("autorun/sh_guncraft_functions.lua")
 
 
@@ -36,11 +37,17 @@ function GUNCRAFT.AddWeapon( data )
         bypassFunc = bypassFunc,
         job = job;
     }
-    
+
+    if not data.disableShipment then
+        table.insert(CustomShipments, {
+            entity = tab.classname,
+            amount = 10 -- Change this value if you want a different amount in the shipment
+        })
+    end
+
+
     tab.model = GUNCRAFT.FetchWorldModel(tab.classname)
     table.insert( GUNCRAFT.config.weapons, #GUNCRAFT.config.weapons + 1, tab )
 
 
 end
-
-
