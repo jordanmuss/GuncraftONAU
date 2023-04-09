@@ -62,6 +62,23 @@ resource.AddWorkshop( "907056173" )
 
 	end )
 
+	local function createShipmentBox(ply, weaponClass, amount, pos) -- Function to create shipment box 
+		local shipmentBox = ents.Create("spawned_shipment")
+		shipmentBox:Setowning_ent(ply)
+		shipmentBox:SetWeaponClass(weaponClass)
+		shipmentBox:SetAmount(amount)
+		shipmentBox:SetPos(pos)
+		shipmentBox:Spawn()
+		shipmentBox:SetPlayer(ply)
+	
+		local phys = shipmentBox:GetPhysicsObject()
+		if phys and phys:IsValid() then
+			phys:Wake()
+		end
+	
+		return shipmentBox
+	end	
+
 	hook.Add( "playerBoughtCustomEntity", "SetOwnership:playerBoughtCustomEntity", function( ply, entT, ent, price )
 
 		if not ply:IsValid() then return end
@@ -256,6 +273,11 @@ resource.AddWorkshop( "907056173" )
 					foundShipKey = key
 				end
 			end
+
+			if not foundShip then
+				FPLib.Notify(ply, "Shipment not found for the weapon: " .. GUNCRAFT.config.weapons[wepKey].name, 1)
+				return
+			end
 			
 			bench:SetNWBool( "guncraft_isWorking", false )
 	
@@ -267,7 +289,7 @@ resource.AddWorkshop( "907056173" )
 	
 			end
 	
-			local crate = ents.Create("shipment_box")
+			local crate = createShipmentBox(ply, GUNCRAFT.config.weapons[wepKey].classname, foundShip.amount, bench:GetPos() + Vector(0, 0, 70))
 			crate:SetWeaponClass(GUNCRAFT.config.weapons[wepKey].classname)
 			crate.WeaponsLeft = 10
 			crate.SID = ply.SID
