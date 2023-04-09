@@ -40,6 +40,7 @@ function GUNCRAFT.AddWeapon( data )
 
     if not data.disableShipment then
         table.insert(CustomShipments, {
+            name = tab.name,
             entity = tab.classname,
             amount = 10 -- Change this value if you want a different amount in the shipment
         })

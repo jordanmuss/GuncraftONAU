@@ -21,7 +21,7 @@ GUNCRAFT.AddWeapon( {
     name = "Colt 1911",
     materials = 30,
     classname = "m9k_colt1911",
-    craftTime = 3,
+    craftTime = 1,
     requiredLevel = 1,
     experience = 3,
 } )
