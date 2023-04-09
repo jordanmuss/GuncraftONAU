@@ -263,13 +263,13 @@ resource.AddWorkshop( "907056173" )
 	
 				FPLib.Notify( ply, "There was an error getting the shipment. See chat.", 1 )
 				ply:PrintMessage( HUD_PRINTTALK, "MESSAGE FOR SERVER OWNER:" )
-				ply:PrintMessage( HUD_PRINTTALK, string.format( [["The shipment for the weapon '%s' could not be found. Please ensure Guncraft's weapons are properly set up."]], wep.name ) )
+				ply:PrintMessage( HUD_PRINTTALK, string.format( [["The shipment for the weapon '%s' could not be found. Please ensure Guncraft's weapons are properly set up."]], GUNCRAFT.config.weapons[wepKey].name ) )
 	
 			end
 	
 			local crate = ents.Create("shipment_box")
 			crate:SetWeaponClass(GUNCRAFT.config.weapons[wepKey].classname)
-			crate.WeaponsLeft = GUNCRAFT.config.shipmentAmount
+			crate.WeaponsLeft = 10
 			crate.SID = ply.SID
 			crate:Setowning_ent(ply)
 			crate:SetContents(foundShipKey, foundShip.amount)
