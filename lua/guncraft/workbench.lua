@@ -249,7 +249,7 @@ resource.AddWorkshop( "907056173" )
 		timer.Simple( mulTime, function()
 
 			local foundShip, foundShipKey
-
+	
 			for key, ship in pairs(GUNCRAFT.CustomShipments) do
 				if ship.entity == GUNCRAFT.config.weapons[wepKey].classname then
 					foundShip = ship
@@ -257,18 +257,16 @@ resource.AddWorkshop( "907056173" )
 				end
 			end
 			
-
 			bench:SetNWBool( "guncraft_isWorking", false )
-
-			local foundShip, foundShipKey = DarkRP.getShipmentByName( GUNCRAFT.config.weapons[wepKey].name )
+	
 			if not foundShip then
-
+	
 				FPLib.Notify( ply, "There was an error getting the shipment. See chat.", 1 )
 				ply:PrintMessage( HUD_PRINTTALK, "MESSAGE FOR SERVER OWNER:" )
 				ply:PrintMessage( HUD_PRINTTALK, string.format( [["The shipment for the weapon '%s' could not be found. Please ensure Guncraft's weapons are properly set up."]], wep.name ) )
-
+	
 			end
-
+	
 			local crate = ents.Create("shipment_box")
 			crate:SetWeaponClass(GUNCRAFT.config.weapons[wepKey].classname)
 			crate.WeaponsLeft = GUNCRAFT.config.shipmentAmount
@@ -284,7 +282,7 @@ resource.AddWorkshop( "907056173" )
 			crate.clip2 = foundShip.clip2
 			crate:Spawn()
 			crate:SetPlayer(ply)
-
+	
 			local phys = crate:GetPhysicsObject()
 			phys:Wake()
 			if foundShip.weight then
