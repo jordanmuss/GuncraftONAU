@@ -1,0 +1,11 @@
+"AddonInfo"
+{
+	"name"				"Guncraft"
+	"version"			"2.1.2"
+	"up_date"			"00/00/00"
+	"author_name"			"Fillipuster"
+	"author_email"			"Don't"
+	"author_url"			""
+	"info"				"Weapon crafting (instead of shipment buying) for DarkRP's gundealers."
+	"override"			"0"
+}
