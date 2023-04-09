@@ -1,3 +1,7 @@
+if not GUNCRAFT.CustomShipments then
+    GUNCRAFT.CustomShipments = {}
+end
+
 resource.AddWorkshop( "907056173" )
 
 	util.AddNetworkString( "guncraft_removeWorkbench" )
