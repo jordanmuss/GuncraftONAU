@@ -63,8 +63,8 @@ resource.AddWorkshop( "907056173" )
 	end )
 
 	local function createShipmentBox(ply, weaponClass, amount, pos) -- Function to create shipment box 
-		local shipmentBox = ents.Create("spawned_shipment")
-		shipmentBox:Setowning_ent(ply)
+		local shipmentBox = ents.Create("shipment_box")
+		-- shipmentBox:Setowning_ent(ply)
 		shipmentBox:SetWeaponClass(weaponClass)
 		shipmentBox:SetPos(pos)
 		shipmentBox:Spawn()
@@ -292,15 +292,14 @@ resource.AddWorkshop( "907056173" )
 			crate:SetWeaponClass(GUNCRAFT.config.weapons[wepKey].classname)
 			crate.WeaponsLeft = 10
 			crate.SID = ply.SID
-			crate:Setowning_ent(ply)
-			crate:SetContents(foundShipKey, foundShip.amount)
+			-- crate:SetContents(foundShipKey, foundShip.amount)
 			crate:SetPos(bench:GetPos() + Vector(0, 0, 70))
 			crate.nodupe = true
 			if not GUNCRAFT.config.weapons[wepKey].disableAmmo then
 				crate.ammoadd = weapons.Get(GUNCRAFT.config.weapons[wepKey].classname).Primary.DefaultClip
 			end
-			crate.clip1 = foundShip.clip1
-			crate.clip2 = foundShip.clip2
+			-- crate.clip1 = foundShip.clip1
+			-- crate.clip2 = foundShip.clip2
 			crate:Spawn()
 			crate:SetPlayer(ply)
 	

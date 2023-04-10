@@ -1,4 +1,4 @@
-CustomShipments = CustomShipments or {}
+GUNCRAFT.CustomShipments = GUNCRAFT.CustomShipments or {}
 include("autorun/sh_guncraft_functions.lua")
 
 
@@ -39,7 +39,7 @@ function GUNCRAFT.AddWeapon( data )
     }
 
     if not data.disableShipment then
-        table.insert(CustomShipments, {
+        table.insert(GUNCRAFT.CustomShipments, {
             name = tab.name,
             entity = tab.classname,
             amount = 10 -- Change this value if you want a different amount in the shipment
