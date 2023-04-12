@@ -10,7 +10,7 @@ Tutorial: https://www.youtube.com/watch?v=BtGmpI-kwd8
 ---------------------------------------------------------------------------]]
 
 -- Set to "true" to enable development/debugging commands and options: (should be "false" for any active server)
-GUNCRAFT.config.devmode = true
+GUNCRAFT.config.devmode = false
 -- Default: false
 
 -- The price of the weapon workbench:

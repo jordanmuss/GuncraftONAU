@@ -98,7 +98,7 @@ resource.AddWorkshop( "907056173" )
 			local returnValue = GUNCRAFT.config.workbenchPrice / 2
 
 			bench:Remove()
-			ply:addMoney( returnValue )
+			ply:AddMoney( returnValue )
 			FPLib.Notify( ply, "You sold your weapons workbench for $" .. returnValue, 0 )
 
 		end
@@ -277,20 +277,20 @@ resource.AddWorkshop( "907056173" )
 				FPLib.Notify(ply, "Shipment not found for the weapon: " .. GUNCRAFT.config.weapons[wepKey].name, 1)
 				return
 			end
-			
+
 			bench:SetNWBool( "guncraft_isWorking", false )
-	
+
 			if not foundShip then
-	
+
 				FPLib.Notify( ply, "There was an error getting the shipment. See chat.", 1 )
 				ply:PrintMessage( HUD_PRINTTALK, "MESSAGE FOR SERVER OWNER:" )
 				ply:PrintMessage( HUD_PRINTTALK, string.format( [["The shipment for the weapon '%s' could not be found. Please ensure Guncraft's weapons are properly set up."]], GUNCRAFT.config.weapons[wepKey].name ) )
-	
+
 			end
-	
+
 			local crate = createShipmentBox(ply, GUNCRAFT.config.weapons[wepKey].classname, foundShip.amount, bench:GetPos() + Vector(0, 0, 70))
 			crate:SetWeaponClass(GUNCRAFT.config.weapons[wepKey].classname)
-			crate.WeaponsLeft = 10
+			crate:SetWeaponsLeft(10)
 			crate.SID = ply.SID
 			-- crate:SetContents(foundShipKey, foundShip.amount)
 			crate:SetPos(bench:GetPos() + Vector(0, 0, 70))
@@ -302,7 +302,7 @@ resource.AddWorkshop( "907056173" )
 			-- crate.clip2 = foundShip.clip2
 			crate:Spawn()
 			crate:SetPlayer(ply)
-	
+
 			local phys = crate:GetPhysicsObject()
 			phys:Wake()
 			if foundShip.weight then

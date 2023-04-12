@@ -5,7 +5,7 @@
 
 ----------------------------------------------------------------------------]]--
 
-function GUNCRAFT.GetWorldModel(classname)
+function GUNCRAFT.FetchWorldModel(classname)
     local wep = weapons.Get(classname)
     if wep and wep.WorldModel then
         return wep.WorldModel

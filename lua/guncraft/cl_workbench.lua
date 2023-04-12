@@ -290,7 +290,7 @@ net.Receive( "guncraft_initWorkbench", function()
 
 	for wepKey, wep in ipairs( GUNCRAFT.config.weapons ) do
 
-		PrintTable(wep)
+		-- PrintTable(wep)
 
 		if wep.job and wep.job ~= team.GetName(LocalPlayer():Team()) then
 			continue
